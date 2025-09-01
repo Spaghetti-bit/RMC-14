@@ -1,0 +1,55 @@
+# Trench platforms
+- type: entity
+  parent: CMPlatform
+  id: RMCPlatformTrench
+  name: trench
+  suffix: RMC
+  description: Upheaved ground, looks deliberately dug up.
+  components:
+    - type: Corrodible
+      timeToApply: 8
+      structure: true
+    - type: Sprite
+      sprite: _RMC14/Structures/trenches.rsi
+      state: trench
+    - type: Icon
+      sprite: _RMC14/Structures/trenches.rsi
+      state: trench
+    - type: Construction
+      graph: RMCPlatformTrenchDestructible
+      node: start
+    - type: IconSmooth
+      key: trenches
+      base: trench_
+    - type: Fixtures
+      fixtures:
+        fix1:
+          shape:
+            !type:PhysShapeAabb
+            bounds: "-0.69,-0.69,0.69,-0.56"
+          density: 1500
+          mask:
+          - TableMask
+          layer:
+          - TableLayer
+        fix2:
+          shape:
+            !type:PhysShapeAabb
+            bounds: "0.69,0.69,0.56,-0.69"
+          density: 1500
+          mask:
+          - TableMask
+          layer:
+          - TableLayer
+
+- type: entity
+  parent: CMPlatform
+  id: RMCPlatformShivaRock
+  name: ice rock edge
+  description: A solid chunk of desolate rocks and ice. Looks like you could climb it with some difficulty.
+  components:
+  - type: Sprite
+    state: strata_platform
+  - type: Construction
+    graph: RMCPlatformShivaRockDestructible
+    node: start
